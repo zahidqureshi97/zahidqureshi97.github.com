@@ -4,9 +4,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="styles/owl.carousel.min.css">
+    <!-- <link rel="stylesheet" href="styles/owl.theme.default.min.css"> -->
+    <link href="styles/main.css" rel="stylesheet" type="text/css"/>
+
     <title>Document</title>
 </head>
 <body>
-    Zahiq Qureshi
+    <nav>
+        <ul>
+            <li>HOME</li>
+            <li>FOR SALE</li>
+            <li>FOR RENT</li>
+            <li>ABOUT</li>
+            <li>
+                <img src="Images/f.png">
+                <img src="Images/tw.png">
+                <img src="Images/g+.png">
+            </li>
+        </ul>
+    </nav>
+    
+    
+    <header>
+        <h1>Johnston<span>&AMP;</span>Brandon</h1>
+        <h2>Real Estate Agency</h2>
+    </header>
+    
+    
+    <section id="panelContainer">
+        <div class="carousel owl-carousel owl-theme">
+            <div class="item">
+                <img src="images/img1.jpg" style="height: 400px; width: 600px;" alt="">
+            </div>
+            <div class="item">
+                <img src="images/img2.jpg" style="height: 400px; width: 600px;" alt="">
+            </div>
+            <div class="item">
+                <img src="images/img3.jpg" style="height: 400px; width: 600px;" alt="">
+            </div>
+            <div class="item">
+                <img src="images/img4.jpg" style="height: 400px; width: 600px;" alt="">
+            </div>
+            <div class="item">
+                <img src="images/img5.jpg" style="height: 400px; width: 600px;" alt="">
+            </div>
+            <div class="item">
+                <img src="images/img6.jpg" style="height: 400px; width: 600px;" alt="">
+            </div>
+        </div>
+        <div id="panel">
+            <div>
+                <h1>Welcome</h1>
+                <p>Feel Free To Explore</p>
+                <div class="button">Send an Email</div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section class='twoColumn'>
+        <div id="left">
+            <h1>New properties for sale</h1>
+            <!-- <img src='images/house.jpg'> -->
+            <div id='circularButton'>+</div>
+            <p>I'm a paragraph. Click here to add your own text and edit me.
+            I'm a great place for you to tell a story and let your users know a little
+            more about you.</p>
+        </div>
+        <div id="right">
+            <h1>New Assets</h1>
+            <table>
+                <tr class='first'>
+                    <td>City</td>
+                    <td>Type</td>
+                    <td>Price</td>
+                </tr>
+                <tbody>
+                <tr>
+                    <td>Ankara</td>
+                    <td>3 + 1</td>
+                    <td>340.000 TL</td>
+                </tr>
+
+                <tr>
+                    <td>İstanbul</td>
+                    <td>2 + 1</td>
+                    <td>380.000 TL</td>
+                </tr>
+
+                <tr>
+                    <td>Antalya</td>
+                    <td>2 + 1</td>
+                    <td>180.000 TL</td>
+                </tr>
+                <tr>
+                    <td colspan='2' id='total'>Total</td>
+                    <td>900.000 TL</td>
+                </tr>
+                </tbody>
+            </table>
+            <div>
+                <input type='text' placeholder="search" id='search'/>
+                <input type='button' value='search' />
+            </div>
+        </div>
+    </section>
+
+<script src="scripts/jquery-3.4.1.min.js"></script>
+<script src="scripts/owl.carousel.min.js"></script>
+<script src="scripts/main.js"></script>
 </body>
 </html>
