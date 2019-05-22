@@ -15,6 +15,15 @@ var upDown = false;
 var downDown = false;
 var leftDown = false;
 var rightDown = false;
+
+var img1 = new Image();
+img1.onload = start;
+img1.src = 'images/zahid.png';
+
+var img2 = new Image();
+img2.onload = start;
+img2.src = 'images/bazil.png';
+
 function start(){
 	clear();
 	renderBackground();
@@ -357,16 +366,20 @@ function renderBall(){
 
 function renderPlayers(){
 	c.save();
-	c.fillStyle = "red";
+	// c.fillStyle = pat;
 	c.beginPath();
 	c.arc(player1.x,player1.y,player1.size,0,Math.PI*2);
 	c.fill();
+	c.drawImage(img1, player1.x - 20, player1.y - 20, player1.size * 2, player1.size * 2);
 	c.closePath();
+
 	c.beginPath();
 	c.fillStyle = "blue";
 	c.arc(player2.x,player2.y,player2.size,0,Math.PI*2);
 	c.fill();
+	c.drawImage(img2, player2.x - 20, player2.y - 20, player2.size * 2, player2.size * 2);
 	c.closePath();
+
 	c.restore();
 }
 

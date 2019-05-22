@@ -22,7 +22,9 @@
             <li>
                 <a class="active" href="form.html">Form</a>
             </li>
-            <li>ABOUT</li>
+            <li>
+                <a href="music.html">Music</a>
+            </li>
             <li>
                 <img src="images/f.png">
                 <img src="images/tw.png">
@@ -64,30 +66,26 @@
 
 <script src="scripts/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
-// $(document).ready(function() {
-//     var date_input = document.getElementById('changeAge');
-//     date_input.value = '2019-05-23';
-// });
-function calculateAge(birthday) { // birthday is a date
-    var ageDifMs = Date.now() - birthday.getTime();
-    var ageDate = new Date(ageDifMs); // miliseconds from epoch
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
-}
-
-function ageChanged(e) {
-    var val = e.target.value.split('-');
-    var year = parseInt(val[0]);
-    var month = parseInt(val[1]) - 1;
-    var day = parseInt(val[2]);
-    var date = new Date(year, month, day);
-
-    var age = calculateAge(date);
-
-    if (age < 18) {
-        alert("You are " + age + " years old! You need to be older than 18!");
-        window.location = "index.html";
+    function calculateAge(birthday) { // birthday is a date
+        var ageDifMs = Date.now() - birthday.getTime();
+        var ageDate = new Date(ageDifMs); // miliseconds from epoch
+        return Math.abs(ageDate.getUTCFullYear() - 1970);
     }
-}
+
+    function ageChanged(e) {
+        var val = e.target.value.split('-');
+        var year = parseInt(val[0]);
+        var month = parseInt(val[1]) - 1;
+        var day = parseInt(val[2]);
+        var date = new Date(year, month, day);
+
+        var age = calculateAge(date);
+
+        if (age < 18) {
+            alert("You are " + age + " years old! You need to be older than 18!");
+            window.location = "index.html";
+        }
+    }
 </script>
 </body>
 </html>

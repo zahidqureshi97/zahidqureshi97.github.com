@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="styles/main.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="styles/form.css">
+
+    <title>Football</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="football.html">Football</a>
+            </li>
+            <li>
+                <a href="form.html">Form</a>
+            </li>
+            <li>
+                <a class="active" href="music.html">Music</a>
+            </li>
+            <li>
+                <img src="images/f.png">
+                <img src="images/tw.png">
+                <img src="images/g+.png">
+            </li>
+        </ul>
+    </nav>
+
+    <div style="display: flex; width: 100%; height: 1000px; justify-content: center; align-items: center; flex-direction: column;">
+        <p>Spotify Music</p>
+        <div>
+            <iframe src="https://open.spotify.com/embed/user/rf4ehmuxqklsh24sey44gtaxl/playlist/2lSZLjJwpVnzaZQMwN3JqM" width="400" height="600" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </div>
+        <!-- <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> -->
+    </div>
+
+<script src="scripts/spotify-player.js"></script>
+<script type="text/javascript">
+window.onSpotifyWebPlaybackSDKReady = () => {
+  const token = 'BQDODF3oxCVzFRFBQOXlvg80vOQ_bEaIXUG4GDt1Z2VMsbV-IxiaNx_ydtredafSOSrAHJNqzS75-d6CJctbe8hJKY6T3Kno-Xlz8bDeL14lBaHZhQjuML7JkGJbQ-yJUgmA5tQX65DjTDQ4r7tdyGkKY2uY06FNcjfd5tkOdvnVGb1yjWrCf4iq4wfz';
+  const player = new Spotify.Player({
+    name: 'Web Playback SDK Quick Start Player',
+    getOAuthToken: cb => { cb(token); }
+  });
+
+  // Error handling
+  player.addListener('initialization_error', ({ message }) => { console.error(message); });
+  player.addListener('authentication_error', ({ message }) => { console.error(message); });
+  player.addListener('account_error', ({ message }) => { console.error(message); });
+  player.addListener('playback_error', ({ message }) => { console.error(message); });
+
+  // Playback status updates
+  player.addListener('player_state_changed', state => { console.log(state); });
+
+  // Ready
+  player.addListener('ready', ({ device_id }) => {
+    console.log('Ready with Device ID', device_id);
+  });
+
+  // Not Ready
+  player.addListener('not_ready', ({ device_id }) => {
+    console.log('Device ID has gone offline', device_id);
+  });
+
+  // Connect to the player!
+  player.connect();
+};
+</script>
+</body>
+</html>
