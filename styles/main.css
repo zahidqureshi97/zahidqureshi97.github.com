@@ -37,3 +37,21 @@ header h2 { font-size: 20px; letter-spacing: 2px; color: #0b6325;}
 #total {  text-align: center; background: #ddd ; }
 #right div { margin-top: 40px; text-align: center; }
 #right div input#search { padding-right: 20px; }
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:visited {
+    color: white;
+}
+
+a.active {
+    text-decoration: underline;
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="styles/main.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="styles/form.css">
+
+    <title>Football</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="football.html">Football</a>
+            </li>
+            <li>
+                <a class="active" href="form.html">Form</a>
+            </li>
+            <li>ABOUT</li>
+            <li>
+                <img src="images/f.png">
+                <img src="images/tw.png">
+                <img src="images/g+.png">
+            </li>
+        </ul>
+    </nav>
+
+    <div style="display: flex; width: 100%; height: 500px; justify-content: center; align-items: center;">
+        <form action="" style="width: 300px;">
+            <div class="form-group">
+                <div class="label" for="">Name:</div>
+                <input type="text" class="input" required>
+            </div>
+            <div class="form-group">
+                <div class="label" for="">Email:</div>
+                <input type="email" class="input" required>
+            </div>
+            <div class="form-group">
+                <div class="label" for="">Password:</div>
+                <input type="password" class="input" required>
+            </div>
+            <div class="form-group">
+                <div class="label"></div>
+                <input type="date" class="input" required id="changeAge" onchange="ageChanged(event);">
+            </div>
+            <div class="form-group">
+                <div class="label" for="" id="age">
+                </div>
+                <input type="checkbox" style="margin-right: 5px;">
+                <span>Remember Me</span>
+            </div>
+            <div class="form-group">
+                <div class="label" for=""></div>
+                <input type="submit" class="input" value="Register">
+            </div>
+        </form>
+    </div>
+
+<script src="scripts/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+// $(document).ready(function() {
+//     var date_input = document.getElementById('changeAge');
+//     date_input.value = '2019-05-23';
+// });
+function calculateAge(birthday) { // birthday is a date
+    var ageDifMs = Date.now() - birthday.getTime();
+    var ageDate = new Date(ageDifMs); // miliseconds from epoch
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
+
+function ageChanged(e) {
+    var val = e.target.value.split('-');
+    var year = parseInt(val[0]);
+    var month = parseInt(val[1]) - 1;
+    var day = parseInt(val[2]);
+    var date = new Date(year, month, day);
+
+    var age = calculateAge(date);
+
+    if (age < 18) {
+        alert("You are " + age + " years old! You need to be older than 18!");
+        window.location = "index.html";
+    }
+}
+</script>
+</body>
+</html>
