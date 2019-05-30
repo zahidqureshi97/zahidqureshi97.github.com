@@ -27,7 +27,7 @@ img2.src = 'images/bazil.png';
 function start(){
 	clear();
 	renderBackground();
-	renderGates();
+	//renderGates();
 	checkKeyboardStatus();
 	checkPlayersBounds();
 	checkBallBounds();
@@ -35,7 +35,7 @@ function start(){
 	movePlayers();
 	moveBall();
 	renderPlayers();
-	renderBall();
+	//renderBall();
 
 	out.innerHTML = "Player 1 Score: " + player1.score + "<br>Player 2 Score: " + player2.score;
 	requestAnimationFrame(start);
@@ -408,7 +408,7 @@ function renderBackground(){
 	c.fillRect(0,0,canvas.width,canvas.height);
 	c.strokeStyle = "rgba(255,255,255,0.6)";
 	c.beginPath();
-	c.arc(canvas.width/2,canvas.height/2,150,0,Math.PI*2);
+	//c.arc(canvas.width/2,canvas.height/2,150,0,Math.PI*2);
 	c.closePath();
 	c.lineWidth = 10;
 	c.stroke();
