@@ -3,7 +3,7 @@
 body { font-family: arial; }
 
 nav { background: #000; font-size: 1.2em; color: #FFF; }
-nav ul { list-style: none; width: 800px; margin:0 auto; padding:0; display: flex;}
+nav ul { list-style: none; width: 900px; margin:0 auto; padding:0; display: flex;}
 nav ul li { line-height: 55px; width: 150px;  }
 nav ul li img { vertical-align: top;}
 

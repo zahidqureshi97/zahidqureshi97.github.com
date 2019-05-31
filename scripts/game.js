@@ -1,9 +1,9 @@
+var id1, id2;
+
 $(document).ready(function(){
     animateDiv();
 
 });
-
-
 
 function makeNewPosition(){
     
@@ -14,21 +14,64 @@ function makeNewPosition(){
     var nh = Math.floor(Math.random() * h);
     var nw = Math.floor(Math.random() * w);
     
-    return [nh,nw];    
+    return [nh,nw];
     
 }
 
 function animateDiv(){
-    var arr = ['.a','.b','c','d','e','f','g','h','i','j'];
+    var arr = ['a','b','c','d','e','f','g','h','i','j','k','l'];
     arr.forEach(great => {
+        var newq = makeNewPosition();
+        var oldq = $('.' + great).offset();
+        var speed = calcSpeed([oldq.top, oldq.left], newq);
         
-    var newq = makeNewPosition();
-    var oldq = $(great).offset();
-    var speed = calcSpeed([oldq.top, oldq.left], newq);
-    
-    $(great).animate({ top: newq[0], left: newq[1] }, speed, function(){
-      animateDiv();        
-    });
+        $('.' + great).animate({ top: newq[0], left: newq[1] }, speed, function(){
+            animateDiv();        
+        });
+
+        $('.' + great).click(function(e) {
+            if ($(this).attr('called') != 'true') {
+                $(this).attr('called', 'true');
+
+                if (!id1) {
+                    id1 = $(this).attr('id');
+                    $(this).find('img').css('display', 'block');
+                } else if (!id2) {
+                    id2 = $(this).attr('id');
+                    $(this).find('img').css('display', 'block');
+
+                    // Match
+                    if (id1 < 7 && id2 < 7 || id1 > 6 && id2 > 6) {
+                        setTimeout(function() {
+                            $('#' + id1).css('display', 'none');
+                            $('#' + id2).css('display', 'none');
+                            id1 = id2 = null;
+
+                            const score = parseInt($('#score').attr('score'));
+                            $('#score').attr('score', score + 10);
+                            $('#score').text(score + 10);
+
+                            if (score + 10 == 60) {
+                                setTimeout(function() {
+                                    alert('The game is over!');
+                                    window.location.reload();
+                                }, 500);
+                            }
+                        }, 500);
+                    } else {
+                        // Wrong
+                        setTimeout(function() {
+                            $('#'+id1).find('img').css('display', 'none');
+                            $('#'+id2).find('img').css('display', 'none');
+                            $('#'+id1).attr('called', null);
+                            $('#'+id2).attr('called', null);
+                            id1 = id2 = null;
+                        }, 500);
+                    }
+
+                }
+            }
+        });
     });
     
     
